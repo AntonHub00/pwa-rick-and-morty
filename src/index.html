@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/index.js" type="module"></script>
+    <title>PWA</title>
+  </head>
+  <body>
+    <h1 class="text-center text-4xl font-bold my-5">
+      Rick And Morty Characters
+    </h1>
+
+    <!-- Cards container -->
+    <div id="cardsContainer" class="p-5 flex flex-wrap gap-5 justify-center">
+      <!-- Card -->
+      <template id="characterCardTemplate">
+        <div
+          class="
+            rounded-md
+            border border-gray-300
+            bg-white
+            overflow-hidden
+            max-w-xs
+            shadow-lg
+            relative
+          "
+        >
+          <img id="characterCardImage" src="" class="max-h-80 w-auto" />
+          <div
+            class="
+              w-full
+              h-full
+              p-5
+              text-white text-3xl text-center
+              bg-black
+              opacity-0
+              absolute
+              top-0
+              flex
+              justify-center
+              items-center
+              cursor-pointer
+              transform
+              hover:opacity-80
+              duration-300
+            "
+          >
+            <span id="characterCardText"></span>
+          </div>
+        </div>
+      </template>
+    </div>
+  </body>
+</html>
