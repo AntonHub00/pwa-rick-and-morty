@@ -21,6 +21,19 @@ self.addEventListener("install", (event) => {
   event.waitUntil(preCache());
 });
 
-self.addEventListener("activate", async () => {});
+self.addEventListener("activate", (event) => {
+  const deleteOldStaticCaches = async () => {
+    const currentCacheNames = await caches.keys();
+
+    const toDeleteCacheNames = currentCacheNames.filter(
+      (cache) => ![staticCacheName].includes(cache)
+    );
+
+    await Promise.all(toDeleteCacheNames.map((cache) => caches.delete(cache)));
+  };
+
+  event.waitUntil(deleteOldStaticCaches());
+});
+
 
 self.addEventListener("fetch", async () => {});
