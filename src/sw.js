@@ -1,4 +1,5 @@
 const staticCacheName = "static-assets-v1";
+const dynamicCacheName = "dynamic-assets-v1";
 
 const staticAssets = [
   "/",
@@ -26,7 +27,7 @@ self.addEventListener("activate", (event) => {
     const currentCacheNames = await caches.keys();
 
     const toDeleteCacheNames = currentCacheNames.filter(
-      (cache) => ![staticCacheName].includes(cache)
+      (cache) => ![staticCacheName, dynamicCacheName].includes(cache)
     );
 
     await Promise.all(toDeleteCacheNames.map((cache) => caches.delete(cache)));
@@ -35,5 +36,19 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(deleteOldStaticCaches());
 });
 
+self.addEventListener("fetch", (event) => {
+  const returnCachedOrStoreResponse = async () => {
+    const request = event.request;
+    let response = await caches.match(request);
 
-self.addEventListener("fetch", async () => {});
+    if (response != undefined) return response;
+
+    response = await fetch(request);
+
+    const currentDynamicCache = await caches.open(dynamicCacheName);
+    currentDynamicCache.put(request.url, response.clone());
+    return response;
+  };
+
+  event.respondWith(returnCachedOrStoreResponse());
+});
