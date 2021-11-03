@@ -1,4 +1,4 @@
-import CardComponent from "./CardComponent";
+import CardComponent from "./CardComponent.js";
 
 export default class CharactersDisplayer {
   #cardsContainer;

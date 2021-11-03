@@ -1,5 +1,5 @@
-import CharacterFecther from "./CharacterFetcher";
-import CharactersDisplayer from "./CharacterDisplayer";
+import CharactersDisplayer from "./CharacterDisplayer.js";
+import CharacterFecther from "./CharacterFetcher.js";
 
 const characterFetcher = new CharacterFecther();
 const characterDisplayer = new CharactersDisplayer();

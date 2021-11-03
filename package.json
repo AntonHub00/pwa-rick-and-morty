@@ -2,14 +2,10 @@
   "name": "pwa",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "serve": "live-server src"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.3.11",
-    "tailwindcss": "^2.2.19",
-    "vite": "^2.6.4"
-  }
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {}
 }

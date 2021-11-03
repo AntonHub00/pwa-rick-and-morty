@@ -7,7 +7,6 @@ const staticAssets = [
   "/js/CardComponent.js",
   "/js/CharacterDisplayer.js",
   "/js/CharacterFetcher.js",
-  "/css/index.css",
   "/images/notFound.jpg",
 ];
 
