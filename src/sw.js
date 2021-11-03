@@ -3,6 +3,7 @@ const staticCacheName = "static-assets-v1";
 const staticAssets = [
   "/",
   "/index.html",
+  "/manifest.json",
   "/js/index.js",
   "/js/CardComponent.js",
   "/js/CharacterDisplayer.js",
